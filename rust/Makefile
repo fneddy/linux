@@ -631,7 +631,7 @@ $(obj)/core.o: private rustc_target_flags = $(core-flags)
 $(obj)/core.o: $(RUST_LIB_SRC)/core/src/lib.rs \
     $(wildcard $(objtree)/include/config/RUSTC_VERSION_TEXT) FORCE
 	+$(call if_changed_rule,rustc_library)
-ifneq ($(or $(CONFIG_X86_64),$(CONFIG_X86_32)),)
+ifneq ($(or $(CONFIG_X86_64),$(CONFIG_X86_32),$(CONFIG_S390)),)
 $(obj)/core.o: scripts/target.json
 endif
 KCOV_INSTRUMENT_core.o := n

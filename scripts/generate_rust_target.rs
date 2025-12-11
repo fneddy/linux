@@ -256,6 +256,19 @@ fn main() {
         }
     } else if cfg.has("LOONGARCH") {
         panic!("loongarch uses the builtin rustc loongarch64-unknown-none-softfloat target");
+    } else if cfg.has("S390") {
+        ts.push("arch", "s390x");
+        ts.push(
+            "data-layout",
+            "E-m:e-i1:8:16-i8:8:16-i64:64-f128:64-v128:64-a:8:16-n32:64",
+        );
+        ts.push("features", "+soft-float,+backchain");
+        ts.push("llvm-target", "s390x-unknown-none");
+        ts.push("abi", "softfloat");
+        ts.push("target-pointer-width", 64);
+        ts.push("max-atomic-width", 128);
+        ts.push("min-global-align", 16);
+        ts.push("llvm-abiname", "+packed-stack" )
     } else {
         panic!("Unsupported architecture");
     }

@@ -244,6 +244,7 @@ config S390
 	select HAVE_RELIABLE_STACKTRACE
 	select HAVE_RETHOOK
 	select HAVE_RSEQ
+	select HAVE_RUST
 	select HAVE_SAMPLE_FTRACE_DIRECT
 	select HAVE_SAMPLE_FTRACE_DIRECT_MULTI
 	select HAVE_SETUP_PER_CPU_AREA
@@ -1004,6 +1005,9 @@ config S390_KPROBES_SANITY_TEST
 	  developers working on architecture code.
 
 	  Say N if you are unsure.
+
+config RUST
+	def_bool y
 
 config S390_MODULES_SANITY_TEST
 	def_tristate n
