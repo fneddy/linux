@@ -268,7 +268,6 @@ fn main() {
         ts.push("target-pointer-width", 64);
         ts.push("max-atomic-width", 128);
         ts.push("min-global-align", 16);
-        ts.push("llvm-abiname", "+packed-stack" )
     } else {
         panic!("Unsupported architecture");
     }
