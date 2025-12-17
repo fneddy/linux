@@ -2149,6 +2149,8 @@ config RUST
 	depends on !CALL_PADDING || RUSTC_VERSION >= 108100
 	depends on !KASAN_SW_TAGS
 	depends on !(MITIGATION_RETHUNK && KASAN) || RUSTC_VERSION >= 108300
+	depends on PCI if S390
+	depends on HAVE_IOREMAP_PROT if S390
 	help
 	  Enables Rust support in the kernel.
 
